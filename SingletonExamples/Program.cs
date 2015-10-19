@@ -10,8 +10,10 @@ namespace SingletonExamples
 	{
 		static void Main(string[] args)
 		{
-			Voorbeeld_1.Program.run();
-			Voorbeeld_2.Program.run();
+			//Voorbeeld_1.Program.run();
+			//Voorbeeld_2.Program.run();
+			//Voorbeeld_3.Program.run();
+			Voorbeeld_4.Program.run();
 		}
 	}
 }

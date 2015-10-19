@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SingletonExamples.Voorbeeld_2
@@ -15,14 +16,27 @@ namespace SingletonExamples.Voorbeeld_2
 		{
 			Console.Out.WriteLine("=====vb2=====");
 
-			Singleton singleton = Singleton.Instance();
-			Singleton theSame = Singleton.Instance();
-			Singleton third = Singleton.Instance();
+			Singleton s1;
+			Singleton s2;
 
-			singleton.SingletonData += "Hello";
-			theSame.SingletonData += " World!";
+			Thread thread1 = new Thread(() =>
+			{
+				s1 = Singleton.Instance(); 
+				s1.SingletonData += "thread1";
+				Console.Out.WriteLine(s1.SingletonData);
+			});
+			Thread thread2 = new Thread(() =>
+			{
+				s2 = Singleton.Instance(); 
+				s2.SingletonData += "thread2";
+				Console.Out.WriteLine(s2.SingletonData);
+			});
 
-			Console.Out.WriteLine(third.SingletonData);
+			thread1.Start();
+			thread2.Start();
+
+			thread1.Join();
+			thread2.Join();
 		}
 	}
 }

@@ -14,13 +14,6 @@ namespace UnitTestSingleton
 		{
 			Singleton singleton = Singleton.Instance();
 			Assert.IsNotNull(singleton.SingletonData);
-			/*Singleton theSame = Singleton.Instance();
-			Singleton third = Singleton.Instance();
-
-			singleton.SingletonData += "Hello";
-			theSame.SingletonData += " World!";
-
-			Console.Out.WriteLine(third.SingletonData);*/
 		}
 		[TestMethod]
 		public void TestNewSingletonDataIdentical()

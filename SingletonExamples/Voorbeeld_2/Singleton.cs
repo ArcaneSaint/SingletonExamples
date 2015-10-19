@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+
+
 
 namespace SingletonExamples.Voorbeeld_2
 {
@@ -12,16 +14,15 @@ namespace SingletonExamples.Voorbeeld_2
 		public static Singleton Instance(){
 			if (instance == null)
 			{
-				for (int i = 0; i < 100000;++i)
-				{
-					instance = new Singleton();	
-				}
+					instance = new Singleton();
 			}
 			return instance;
 		}
 
+		
 		private Singleton()
 		{
+			Thread.Sleep(5000);//Zware initialisatie-code, duurt 5 seconden voor SingletonData bestaat.
 			SingletonData = "";
 		}
 

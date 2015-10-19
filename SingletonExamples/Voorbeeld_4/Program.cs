@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SingletonExamples.Voorbeeld_3
+namespace SingletonExamples.Voorbeeld_4
 {
 	public class Program
 	{
@@ -14,20 +14,20 @@ namespace SingletonExamples.Voorbeeld_3
 		/// </summary>
 		public static void run()
 		{
-			Console.Out.WriteLine("=====vb3=====");
+			Console.Out.WriteLine("=====vb4=====");
 
 			Singleton s1;
 			Singleton s2;
 
 			Thread thread1 = new Thread(() =>
 			{
-				s1 = Singleton.Instance();
+				s1 = Singleton.Instance;
 				s1.SingletonData += "thread1";
 				Console.Out.WriteLine(s1.SingletonData);
 			});
 			Thread thread2 = new Thread(() =>
 			{
-				s2 = Singleton.Instance();
+				s2 = Singleton.Instance;
 				s2.SingletonData += "thread2";
 				Console.Out.WriteLine(s2.SingletonData);
 			});
