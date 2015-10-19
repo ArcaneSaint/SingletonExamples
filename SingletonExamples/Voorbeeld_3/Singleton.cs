@@ -31,6 +31,6 @@ namespace SingletonExamples.Voorbeeld_3
 
 		public string SingletonData { get; set; }
 
-		private static Singleton instance = new Singleton();
+		private static Singleton instance;
 	}
 }
